@@ -3,7 +3,25 @@
 
 零、部署信息
 
-    1. 
+    1.服务器信息：
+    
+        项目利用宝塔辅助搭建在单核2G的腾讯云服务器上，并在腾讯云安全组中放通了所有端口。
+        
+    2.版本说明：
+    
+        · 系统版本：CentOS 7.6.1810 (Py3.7.8)
+        · Web服务器版本：Apache 2.4.46
+        · ThinkPHP框架版本：5.0.24
+        · PHP语言版本：7.2
+        · MySQL数据库版本：5.5.62
+        · Erlang版本：otp_src_20.3
+        · RabbitMQ版本：3.6.15
+        · Captcha版本（ThinkPHP中的验证码包）：1.*
+
+    3. 注意事项：
+    
+        · 安装RabbitMQ之前一定要安装Erlang
+        · Captcha 1.* 对应ThinkPHP 5.0 版本，Captcha 2 对应ThinkPHP 5.1 版本
 
 一、项目介绍
 
