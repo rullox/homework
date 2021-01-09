@@ -19,9 +19,9 @@
 
     3. 注意事项：
         
-        · www.homework.com以及www.homework-admin.com为两个完全独立的ThinkPHP项目，并共享部分数据库
-        · www.homework.com是用户秒杀系统
-        · www.homework-admin.com是后台管理系统
+        · "www.homework.com"以及"www.homework-admin.com"为两个完全独立的ThinkPHP项目，并共享部分数据库
+        · "www.homework.com"是用户秒杀系统
+        · "www.homework-admin.com"是后台管理系统
         · 安装RabbitMQ之前一定要安装Erlang
         · Captcha 1.* 对应ThinkPHP 5.0 版本（本项目中对应该版本），Captcha 2 对应ThinkPHP 5.1 版本
 
