@@ -1,7 +1,6 @@
-# homework
-互联网软件开发期末小项目
+# 互联网软件开发期末小项目
 
-部署信息
+## 部署信息
 
     1.服务器信息：
     
@@ -19,11 +18,14 @@
         · Captcha版本（ThinkPHP中的验证码包）：1.*
 
     3. 注意事项：
-    
+        
+        · www.homework.com以及www.homework-admin.com为两个完全独立的ThinkPHP项目，并共享部分数据库
+        · www.homework.com是用户秒杀系统
+        · www.homework-admin.com是后台管理系统
         · 安装RabbitMQ之前一定要安装Erlang
-        · Captcha 1.* 对应ThinkPHP 5.0 版本，Captcha 2 对应ThinkPHP 5.1 版本
+        · Captcha 1.* 对应ThinkPHP 5.0 版本（本项目中对应该版本），Captcha 2 对应ThinkPHP 5.1 版本
 
-一、项目介绍
+## 一、项目介绍
 
     1.项目主题
 
@@ -38,7 +40,7 @@
         后端采用ThinkPHP框架，数据库采用MySQL，消息队列使用RabbitMQ，前端页面基于开源项目XAdmin的html页面进行辅助开发。项目涉及语言包括PHP、JavaScript、Go等。
 
 
-二、系统功能
+## 二、系统功能
 
     1.后台管理系统
 
@@ -53,7 +55,7 @@
         （2）用户订单查看功能
         （3）购物车功能
 
-三、性能优化策略及实现
+## 三、性能优化策略及实现
 
     1.消息队列
 
@@ -61,10 +63,10 @@
 
     2.SQL处理分离机制
 
-        以PHP框架端作为生产者，控制器将所需处理得信息以JSON格式存入RabbitMQ消息队列。
-        Go语言将作为消费者，程序从RabbitMQ消息队列取出消息，并执行相关数据库增、删、改、查操作。
+        · 以PHP框架端作为生产者，控制器将所需处理得信息以JSON格式存入RabbitMQ消息队列。
+        · Go语言将作为消费者，程序从RabbitMQ消息队列取出消息，并执行相关数据库增、删、改、查操作。
 
-四、应用安全策略及实现
+## 四、应用安全策略及实现
 
     1.登录及已登录的权限验证机制
 
