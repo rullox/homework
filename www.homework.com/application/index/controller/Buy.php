@@ -25,6 +25,10 @@ class Buy extends Base {
         if (!captcha_check($code)) {
             return $this->error('支付失败！', 'index/platform/index');
         }
+        //防止有人修改cookie导致数值错误
+        if (!is_numeric(cookie('goods_id')) || !is_numeric(cookie('goods_price'))) {
+            return $this->error('支付失败！', 'index/platform/index');
+        }
         $this->view->engine->layout(false);
         $row = db('users', [], false)->where('username', cookie('username'))->find();
         if ($row['money'] < cookie('goods_price')) {
