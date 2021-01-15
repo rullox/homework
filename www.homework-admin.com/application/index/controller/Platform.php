@@ -45,15 +45,18 @@ class Platform extends Base {
             $password = input('c2');
             $token = input('c3');
             $money = input('c4');
-            //前后表名不一致，保证安全性
-            $result = db('users', [], false)
-                ->update([
-                    'id' => $id,
-                    'username' => $username,
-                    'password' => $password,
-                    'token' => $token,
-                    'money' => $money
-                ]);
+            //初步判定值合法性
+            if (is_numeric($id) && is_numeric($money) && $username != "" && $password != "" && $token != "") {
+                //前后表名不一致，保证安全性
+                $result = db('users', [], false)
+                    ->update([
+                        'id' => $id,
+                        'username' => $username,
+                        'password' => $password,
+                        'token' => $token,
+                        'money' => $money
+                    ]);
+            }
         }
         else if ($table == "good") {
             $id = input('c0');
@@ -62,16 +65,19 @@ class Platform extends Base {
             $status = input('c3');
             $pic = input('c4');
             $price = input('c5');
-            //前后表名不一致，保证安全性
-            $result = db('goods', [], false)
-                ->update([
-                    'id' => $id,
-                    'name' => $name,
-                    'count' => $count,
-                    'status' => $status,
-                    'pic' => $pic,
-                    'price' => $price
-                ]);
+            //初步判定值合法性
+            if (is_numeric($id) && is_numeric($status) && is_numeric($count) && is_numeric($price) && $name != "") {
+                //前后表名不一致，保证安全性
+                $result = db('goods', [], false)
+                    ->update([
+                        'id' => $id,
+                        'name' => $name,
+                        'count' => $count,
+                        'status' => $status,
+                        'pic' => $pic,
+                        'price' => $price
+                    ]);
+            }
         }
         else if ($table == "order") {
             $id = input('c0');
@@ -80,16 +86,19 @@ class Platform extends Base {
             $goods_id = input('c3');
             $goods_name = input('c4');
             $number = input('c5');
-            //前后表名不一致，保证安全性
-            $result = db('list', [], false)
-                ->update([
-                    'id' => $id,
-                    'user_id' => $user_id,
-                    'user_name' => $user_name,
-                    'goods_id' => $goods_id,
-                    'goods_name' => $goods_name,
-                    'number' => $number
-                ]);
+            //初步判定值合法性
+            if (is_numeric($id) && is_numeric($user_id) && is_numeric($goods_id) && is_numeric($price) && $user_name != "" && $goods_name != "") {
+                //前后表名不一致，保证安全性
+                $result = db('list', [], false)
+                    ->update([
+                        'id' => $id,
+                        'user_id' => $user_id,
+                        'user_name' => $user_name,
+                        'goods_id' => $goods_id,
+                        'goods_name' => $goods_name,
+                        'number' => $number
+                    ]);
+            }
         }
         
         if ($result) return "修改成功！";
